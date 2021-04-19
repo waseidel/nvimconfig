@@ -21,9 +21,39 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
     ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/AppData/Local/nvim/autoload/plug.vim" -Force
 ```
 
+##### Instalar node para poder ejecutar CoC
+
+###### Ubuntu
+``` sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+
+###### Alpine
+``` sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | ash
+```
+
+luego verificar que este en el archivo de .bashrc o .profile
+``` sh
+export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
+Y finalmente proceder a instalar la versión deseada de node yo instalo la LTS (v14.16.1 al momento de la instalación)
+
+``` sh
+nvm install --lts
+```
+
+###### Windows
+En windows ir a la pagina de nodejs y descargar la version deseada
+
 ##### Requerimientos
 
 * [VimPlug]
+* [Nodejs]
 
 [VimPlug]: https://github.com/junegunn/vim-plug
+[Nodejs]: https://nodejs.org
 [logo]: https://neovim.io/images/logo@2x.png
