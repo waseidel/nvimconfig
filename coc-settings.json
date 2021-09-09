@@ -1,5 +1,22 @@
 {
-  "prettier.tslintIntegration": true,
-  "prettier.eslintIntegration": false,
-  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "javascript", "javascriptreact"]
+  "tslint.autoFixOnSave": true,
+  "emmet.excludeLanguages": ["markdown", "typescriptreact"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "json",
+    "javascript",
+    "typescriptreact"
+  ],
+  "snippets.extends": {
+    "javascript": ["javascript"],
+    "typescriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
+  "tailwindCSS.jsLanguages": [
+    "javascript",
+    "javascriptreact",
+    "reason",
+    "typescriptreact",
+    "typescript"
+  ]
 }
