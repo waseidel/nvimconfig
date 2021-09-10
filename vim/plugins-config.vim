@@ -1,7 +1,7 @@
 " Theme & Colorscheme
-highlight Normal ctermbg=NONE
-let g:gruvbox_contrast_dark = "hard"
 colorscheme gruvbox
+let g:gruvbox_contrast_dark = "hard"
+highlight Normal ctermbg=NONE
 
 " Configuration file for the plugins
 " HTML, JSX

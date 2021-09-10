@@ -19,7 +19,7 @@ set noshowmode
 set autoread                                        " reload files changed outside of Vim not currently modified in Vim (needs below)
 au FocusGained,BufEnter * :silent! !                " http://stackoverflow.com/questions/2490227/how-does-vims-autoread-work#20418591
 
-" Show special chars
+" Show special char
 set list
 set listchars=tab:>-                                " Tabs
 set listchars=space:·                               " Spaces
