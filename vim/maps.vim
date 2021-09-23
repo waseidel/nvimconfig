@@ -96,11 +96,15 @@ function! OpenTerminal()
     execute "q"
   else
     " open terminal
-    execute "vsp term://pwsh"
+    if has("win32") || has("win64")
+      execute "vsp term://pwsh"
+    else
+      execute "vsp term://zsh"
+    endif
 
     " turn off numbers
     execute "set nonu"
-    execute "nornu"
+    execute "set nornu"
 
     " toggle insert on enter/exit
     silent au BufLeave <buffer> stopinsert!
@@ -112,7 +116,9 @@ function! OpenTerminal()
     execute "tnoremap <buffer> <C-\\><C-\\> <C-\\><C-n>"
 
     startinsert!
+  endif
 endfunction
+
 nnoremap <c-t> :call OpenTerminal()<CR>
 
 " make Backspace work like Delete
