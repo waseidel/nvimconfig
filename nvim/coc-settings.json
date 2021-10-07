@@ -1,0 +1,22 @@
+{
+  "tslint.autoFixOnSave": true,
+  "emmet.excludeLanguages": ["markdown", "typescriptreact"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "json",
+    "javascript",
+    "typescriptreact"
+  ],
+  "snippets.extends": {
+    "javascript": ["javascript"],
+    "typescriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
+  "tailwindCSS.jsLanguages": [
+    "javascript",
+    "javascriptreact",
+    "reason",
+    "typescriptreact",
+    "typescript"
+  ]
+}
