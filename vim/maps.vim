@@ -104,6 +104,7 @@ function! OpenTerminal()
     elseif has("unix")
       execute "vsp term:///bin/zsh"
     endif
+   endif
 
     " turn off numbers
     execute "set nonu"

@@ -10,8 +10,6 @@ let g:closetag_filenames = '*.html,*.js,*.jsx,*.ts,*.tsx,*.php'
 " Configuration for CoC
 let g:coc_global_extensions = [
       \ 'coc-css', 
-      \ 'coc-emmet', 
-      \ 'coc-html', 
       \ 'coc-json', 
       \ 'coc-prettier', 
       \ 'coc-pyright', 
@@ -90,6 +88,3 @@ nnoremap <right> zl
 nnoremap <left> zh
 
 command! -range=% RemoveTrailing <line1>,<line2>s/\s\+$//e  " Remove trailing white spaces
-
-
-
