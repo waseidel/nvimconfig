@@ -29,22 +29,25 @@ map <silent> gd <Plug>(coc-definition)
 map <silent> gy <Plug>(coc-type-definition)
 map <silent> gi <Plug>(coc-implementation)
 map <silent> gr <Plug>(coc-references)
-nmap <leader>ac  <Plug>(coc-codeaction)
-nmap <leader>qf  <Plug>(coc-fix-current)
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand) 
+
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select) 
+
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>' 
+
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>' 
+
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump) 
+
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh() 
+
 nmap <silent><leader>i :CocCommand tsserver.organizeImports<cr>
 
 " copiar ruta relativa del archivo
@@ -96,11 +99,15 @@ function! OpenTerminal()
     execute "q"
   else
     " open terminal
-    execute "vsp term://pwsh"
+    if has("win64") || has("win32")
+      execute "vsp term://pwsh"
+    elseif has("unix")
+      execute "vsp term:///bin/zsh"
+    endif
 
     " turn off numbers
     execute "set nonu"
-    execute "nornu"
+    execute "set nornu"
 
     " toggle insert on enter/exit
     silent au BufLeave <buffer> stopinsert!
@@ -112,7 +119,10 @@ function! OpenTerminal()
     execute "tnoremap <buffer> <C-\\><C-\\> <C-\\><C-n>"
 
     startinsert!
+  endif
+
 endfunction
+
 nnoremap <c-t> :call OpenTerminal()<CR>
 
 " make Backspace work like Delete

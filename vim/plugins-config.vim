@@ -1,6 +1,6 @@
 " Theme & Colorscheme
-colorscheme gruvbox
 let g:gruvbox_contrast_dark = "hard"
+colorscheme gruvbox
 highlight Normal ctermbg=NONE
 
 " Configuration file for the plugins
