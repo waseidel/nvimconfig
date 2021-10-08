@@ -8,17 +8,20 @@ export ZSH="/home/waseidel/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
 ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_MODE="nerdfont-complete"
 
-# ZSH configuration
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir newline status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs nodeenv time)
-
-POWERLEVEL9K_CONTEXT_TEMPLATE='%n'
-
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs virtualenv)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
 
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(nodeenv nvm php_version ram disk_usage time)
+NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 # Set list of themes to pick from when loading at random
@@ -81,7 +84,16 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  archlinux
+  fzf
+  git
+  history-substring-search
+  colored-man-pages
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  zsh-z
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=es_CO.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -98,6 +110,9 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -108,11 +123,33 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="nvim ~/.zshrc"
+# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$PATH:/snap/bin"
+export LANG=es_CO.UTF-8
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias env="source venv/bin/activate"
+alias ..="cd .."
+alias ...="cd ../.."
+alias v="nvim-qt"
+
+alias sail="bash vendor/bin/sail"
+
+alias cdr="cd ~/code/react/"
+alias cdc="cd ~/code/"
+alias cdp="cd ~/code/python/"
+
+alias env="source env/bin/activate"
+
+alias gpl="git pull"
+alias gcmm="git commit -m"
+alias gpsh="git push"
+alias gall="git add ."
+alias gst="git status"
+
